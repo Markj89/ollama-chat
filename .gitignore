@@ -1,0 +1,25 @@
+# Python stuff
+__pycache__/
+/**/__pycache__
+.venv
+.venv/
+*.__pycache__
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Tests
+.coverage
+
+# Build 
+dist/
+build/
+*.egg-info/
