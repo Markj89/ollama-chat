@@ -5,7 +5,6 @@ import sys
 
 # Chat-capable model
 model = "phi3:mini"
-old_conversation = []
 
 # Intro
 intro = [
