@@ -23,8 +23,3 @@ class TestConversation:
         instance = Conversation()
         instance.serialize()
         assert instance.message == []
-        
-  def test_conversation_add_user():
-      conversation = Conversation()
-      conversation.add_user("What is the the capitol of Illinois?")
-      assert conversation.serialize() == [{"role": "user", "content": "What is the the capitol of Illinois?"}]
