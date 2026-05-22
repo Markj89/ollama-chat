@@ -5,7 +5,6 @@ import sys
 
 # Chat-capable model
 model = "phi3:mini"
-old_conversation = []
 
 # Intro
 intro = [
@@ -19,7 +18,8 @@ def main():
         reply = chat(model=model, messages=intro)
         print("Bot: ", reply.message.content)
         time.sleep(1)
-        PromptLayer(model)
+        while True:
+            PromptLayer(model)
         
     except KeyboardInterrupt:
         print("\nKeyboard interrupt received. Exiting out.")
