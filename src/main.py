@@ -23,9 +23,8 @@ def main():
             sys.exit()
         
         client = ollama_client(BASE_URL)
-        print(client)
         print("AI Chat bot has started, press Ctrl+C to exit")
-        reply = client.chat(model=BASE_MODEL, messages=intro)
+        reply = client.chat(host=BASE_URL, model=BASE_MODEL, messages=intro)
         print("Bot: ", reply.message.content)
         time.sleep(1)
         while True:
