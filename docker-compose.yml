@@ -1,0 +1,6 @@
+services:
+  web:
+    image: ollama-chat
+    environment:
+      - OLLAMA_URL=http://host.docker.internal:11434/api/chat
+      - OLLAMA_MODEL=phi3:mini
