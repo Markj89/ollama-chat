@@ -1,0 +1,31 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Login to DockerHub
+      run: docker login -u ${{ vars.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    
+    - name: Build Docker image
+      run: |
+        docker build . \
+        --file Dockerfile \
+        --tag ${{ vars.DOCKER_USERNAME }}/${{ vars.IMAGE_NAME }}:latest
+
+    - name: Push Docker image
+      run: |
+        docker push ${{ vars.DOCKER_USERNAME }}/${{ vars.IMAGE_NAME }}:latest

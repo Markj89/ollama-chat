@@ -1,0 +1,15 @@
+version: '1.0.1'
+
+services:
+  web:
+    build: .
+    image: ollama-chat
+    container_name: ollama
+    ports: ["11434:11434"]
+    pull_policy: always
+    tty: true
+    restart: unless-stopped
+
+    environment:
+      - OLLAMA_URL=http://host.docker.internal:11434
+      - OLLAMA_MODEL=phi3:mini
