@@ -8,8 +8,8 @@ from services.ollama_services import ollama_client, check_url
 load_dotenv()
 
 # Chat-capable model
-BASE_MODEL = os.getenv("OLLAMA_MODEL")
-BASE_URL = os.getenv("OLLAMA_URL")
+BASE_MODEL = os.getenv("OLLAMA_MODEL", "phi3")
+BASE_URL = os.getenv("OLLAMA_URL", "http://ollama:11434")
 
 # Intro
 intro = [
