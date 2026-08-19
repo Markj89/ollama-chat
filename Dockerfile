@@ -1,14 +1,10 @@
-FROM python:3.12-alpine
+FROM python:3.12-slim
 
-# Directory
 WORKDIR /app
 
-# Coprt and install requirements
-COPY requirements.txt .
-RUN pip install -r requirements.txt
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application code
 COPY . .
 
-# Run the Python script
-CMD ["python" , "src/main.py"]
+CMD ["python", "src/main.py"]
